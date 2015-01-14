@@ -1,0 +1,26 @@
+{
+  "name": "football-hour",
+  "version": "0.0.0",
+  "authors": [
+    "rike422 <rike2Takira@gmail.com>"
+  ],
+  "description": "football-hour",
+  "main": "app.js",
+  "keywords": [
+    "node-webkit",
+    "polymer"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.12.2"
+  }
+}
