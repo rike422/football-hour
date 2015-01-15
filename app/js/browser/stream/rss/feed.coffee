@@ -26,9 +26,9 @@ class RssFeed extends events.EventEmitter2
 
   toVueObj: ->
     {
-    title: @feed.title
-    url: @feed.url
-    description: @feed.description
+      title: @feed.title
+      url: @feed.url
+      description: @feed.description
     }
 
 exports = RssStream

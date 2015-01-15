@@ -38,7 +38,7 @@ module.exports =
       modulesDirectories: ['app/js/rss', 'web_modules', 'bower_components', 'node_modules']
     plugins: [
       new webpack.ResolverPlugin([
-        new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('package.json','bower.json', ['main'])
+        new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
       ])
     ]
 
