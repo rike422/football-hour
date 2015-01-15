@@ -5,7 +5,7 @@ BASE = (p) ->
 
 DST_DIR = BASE("public")
 HTML = BASE("app/view/index.jade")
-RENDER_SCRIPTS = BASE("app/js/render/**/*.coffee")
+RENDER_SCRIPTS = BASE("app/js/renderer/**/*.coffee")
 BROWSER_SCRIPTS  = BASE("app/js/browser/**/*.coffee")
 STYLES = BASE("app/css/**/*.scss")
 MENUS = BASE ("app/menus/**/*.*")

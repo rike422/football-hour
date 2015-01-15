@@ -20,22 +20,24 @@ module.exports =
       chunkFilename: '[chunkhash].js'
     module:
       loaders: [
-        {
-          test: /\.coffee$/
-          loader: 'coffee-loader'
-        }
-        {
-          test: /\.scss$/
-          loader: "style-loader!sass-loader?outputStyle=expanded&includePaths[]=./bower_components/foundation/scss/"
-        }
-        {
-          test: /\.css$/
-          loader: 'style-loader!css-loader'
-        }
+        { test: /\.coffee$/, loader: 'coffee-loader' }
+        { test: /\.css$/, loader: "style!css" },
+        { test: /\.scss$/, loader: 'style!css!sass' },
+        { test: /\.less$/, loader: 'style!css!less' },
+        { test: /\.jsx$/, loader: 'jsx' },
+        { test: /\.woff$/, loader: 'url?limit=10000&minetype=application/font-woff' },
+        { test: /\.ttf$/, loader: 'file' },
+        { test: /\.eot$/, loader: 'file' },
+        { test: /\.svg$/, loader: 'file' },
+        { test: /\.(gif|png|jpg)$/, loaders: 'image?optimizationLevel=7&interlaced=false' }
       ]
     resolve:
-      extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
+      extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss', '.jsx']
       modulesDirectories: ['app/js/rss', 'web_modules', 'bower_components', 'node_modules']
+    externals: {
+      "jquery": "jQuery",
+      "react": "React"
+    },
     plugins: [
       new webpack.ResolverPlugin([
         new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('bower.json', ['main'])
