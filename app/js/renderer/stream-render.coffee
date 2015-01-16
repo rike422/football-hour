@@ -1,4 +1,4 @@
-ipc = require("ipc")
+ipc = require('ipc')
 React = require('react')
 mui = require('material-ui')
 _ = require('lodash')

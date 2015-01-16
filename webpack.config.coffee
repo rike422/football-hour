@@ -20,19 +20,25 @@ module.exports =
       chunkFilename: '[chunkhash].js'
     module:
       loaders: [
-        { test: /\.coffee$/, loader: 'coffee-loader' }
-        { test: /\.css$/, loader: "style!css" },
-        { test: /\.scss$/, loader: 'style!css!sass' },
-        { test: /\.less$/, loader: 'style!css!less' },
-        { test: /\.jsx$/, loader: 'jsx' },
-        { test: /\.woff$/, loader: 'url?limit=10000&minetype=application/font-woff' },
-        { test: /\.ttf$/, loader: 'file' },
-        { test: /\.eot$/, loader: 'file' },
-        { test: /\.svg$/, loader: 'file' },
-        { test: /\.(gif|png|jpg)$/, loaders: 'image?optimizationLevel=7&interlaced=false' }
+        {test: /\.coffee$/, loader: 'coffee-loader'}
+        {test: /\.css$/, loader: "style!css"},
+        {test: /\.scss$/, loader: "style!css!sass?outputStyle=expanded&" +
+            "includePaths[]=" +
+            (path.resolve(__dirname, "./bower_components")) + "&" +
+            "includePaths[]=" +
+            (path.resolve(__dirname, "./node_modules"))
+        },
+        {test: /\.less$/, loader: 'style!raw!less'},
+        {test: /\.js$/, loader: "jsx-loader?harmony" },
+        {test: /\.jsx$/, loader: "jsx-loader?harmony" },
+        {test: /\.woff$/, loader: 'url?limit=10000&minetype=application/font-woff'},
+        {test: /\.ttf$/, loader: 'file'},
+        {test: /\.eot$/, loader: 'file'},
+        {test: /\.svg$/, loader: 'file'},
+        {test: /\.(gif|png|jpg)$/, loaders: 'image?optimizationLevel=7&interlaced=false'}
       ]
     resolve:
-      extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.scss', '.jsx']
+      extensions: ['', '.jsx', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
       modulesDirectories: ['app/js/rss', 'web_modules', 'bower_components', 'node_modules']
     externals: {
       "jquery": "jQuery",
