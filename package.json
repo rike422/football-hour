@@ -1,24 +1,14 @@
 {
   "name": "football-hour",
-  "productName": "football-hour",
   "version": "0.0.0",
   "description": "",
   "repository": {
     "type": "git",
     "url": "git://github.com/rike422/football-hour.git"
   },
-  "main": "./dist/browser/main.js",
-  "single-instance": true,
-  "window": {
-    "title": "football-hour",
-    "width": 1280,
-    "height": 650,
-    "toolbar": true
-  },
   "keywords": [],
   "scripts": {
     "compile": "gulp build",
-    "app": " export NW_DEV_MY_AWESOME_PROJECT=1; nodewebkit .",
     "deploy": "gulp release"
   },
   "bugs": "https://github.com/rike422/football-hour/issues",
@@ -55,8 +45,6 @@
     "gulp-livereload": "",
     "gulp-notify": "~2.0.1",
     "gulp-plumber": "^0.6.6",
-    "gulp-ruby-sass": "",
-    "gulp-sass": "",
     "gulp-sourcemaps": "^1.3.0",
     "gulp-webpack": "~1.1.2",
     "image-webpack-loader": "^1.1.1",
@@ -68,8 +56,6 @@
     "loader-utils": "^0.2.6",
     "node-inspector": "^0.8.3",
     "node-sass": "^2.0.0-beta",
-    "react": "^0.12.2",
-    "react-jade": "^0.2.0",
     "react-jade-loader": "^0.1.0",
     "require-directory": "",
     "sass-loader": "~0.3.1",

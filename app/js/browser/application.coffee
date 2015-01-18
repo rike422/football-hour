@@ -16,7 +16,7 @@ class Application
   constructor: (options) ->
     {@resourcePath, @version, @devMode } = options
 
-    @pkgJson = require '../../package.json'
+    @pkgJson = require '../package.json'
     @window = new AppWindow(options)
     @menu = new AppMenu(pkg: @pkgJson)
     app.on 'window-all-closed', (e) ->

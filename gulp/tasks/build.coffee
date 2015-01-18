@@ -20,8 +20,10 @@ gulp.task "build:browser", ->
   return
 
 gulp.task 'copy:config', ->
-  gulp.src 'app/menus/**/*.*'
+  gulp.src ['app/menus/**/*']
   .pipe gulp.dest './dist/menus'
+  gulp.src ['app/package.json']
+  .pipe gulp.dest './dist'
   return
 
 gulp.task "build:renderer", ->
