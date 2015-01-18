@@ -35,14 +35,14 @@ module.exports =
         {test: /\.ttf$/, loader: 'file'},
         {test: /\.eot$/, loader: 'file'},
         {test: /\.svg$/, loader: 'file'},
+        {test: /\.jade$/, loader: "react-jade-loader?split=true"}
         {test: /\.(gif|png|jpg)$/, loaders: 'image?optimizationLevel=7&interlaced=false'}
       ]
     resolve:
       extensions: ['', '.jsx', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
-      modulesDirectories: ['app/js/rss', 'web_modules', 'bower_components', 'node_modules']
+      modulesDirectories: ['app/js/rss', 'app/view', 'web_modules', 'bower_components', 'node_modules']
     externals: {
-      "jquery": "jQuery",
-      "react": "React"
+      #"react": "React"
     },
     plugins: [
       new webpack.ResolverPlugin([
