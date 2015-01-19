@@ -19,7 +19,6 @@ class RssStream extends events.EventEmitter2
     stream.on 'end', =>
       cb null, @line
 
-
 class RssFeed extends events.EventEmitter2
   constructor: (feed) ->
     @feed = feed

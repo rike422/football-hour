@@ -9,13 +9,13 @@ _ = require 'lodash'
 {spawn} = require 'child_process'
 AppMenu = require './menu.js'
 AppWindow = require './window.js'
+LiveReload = require './live-reload.js'
 
 class Application
   _.extend(@prototype, EventEmitter.prototype)
 
   constructor: (options) ->
     {@resourcePath, @version, @devMode } = options
-
     @pkgJson = require '../package.json'
     @window = new AppWindow(options)
     @menu = new AppMenu(pkg: @pkgJson)
@@ -24,6 +24,8 @@ class Application
     @window.show()
     @menu.attachToWindow @window
     @handleMenuItems(@menu, @window)
+    reloader = new LiveReload(@window, "../../")
+    reloader.watchAll()
 
   handleMenuItems: (menu, thisWindow) ->
     menu.on 'application:window-all-closed', -> app.quit()

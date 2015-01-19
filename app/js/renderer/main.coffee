@@ -5,4 +5,3 @@ ipc.on('ping',(message) ->
   h1.innerText = "football-hour #{message}"
   document.body.appendChild h1
 )
-
