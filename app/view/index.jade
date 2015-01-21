@@ -6,9 +6,9 @@ title
 body
     script(src="renderer/main.js")
     script.
-      var chokidar = require('chokidar');
-      var watcher  = chokidar.watch('../', {ignored: /[\\/\\]\./});
-      watcher.on('all', function(event, path) {
-        if (window.location)
-          window.location.reload();
+      remote = require('remote');
+      chokidar = require("chokidar")
+       chokidar.watch("../", { ignored: /[\/\\]\./ }).on('change', function(event, path) {
+          alert("alert");
+          return remote.getCurrentWindow().reload();
       });
