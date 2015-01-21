@@ -1,4 +1,4 @@
 {
   "productName": "football-hour",
-  "main": "./browser/main.js"
+  "main": "./browser/main.js",
 }

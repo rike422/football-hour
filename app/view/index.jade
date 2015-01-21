@@ -4,11 +4,10 @@ html(lang='ja', ng-app='app')
 title
     | football-hour
 body
-    script(src="renderer/main.js")
+    script(src="../renderer/main.js")
     script.
       remote = require('remote');
       chokidar = require("chokidar")
        chokidar.watch("../", { ignored: /[\/\\]\./ }).on('change', function(event, path) {
-          alert("alert");
           return remote.getCurrentWindow().reload();
       });

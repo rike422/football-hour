@@ -5,5 +5,5 @@ jade = require 'gulp-jade'
 gulp.task "build:jade", ->
   gulp.src html.src
   .pipe(jade())
-  .pipe(gulp.dest("./dist/"))
+  .pipe(gulp.dest("./dist/view/"))
   return

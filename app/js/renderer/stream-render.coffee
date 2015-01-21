@@ -4,10 +4,11 @@ _ = require('lodash')
 React = require 'react/react'
 streamTemplate = require('components/stream-list.jade')
 
-Comp = React.createClass({
+Hello = React.createClass({
+  propTypes: {
+    name: React.PropTypes.string.isRequired,
+  },
   render: -> streamTemplate()
 })
 
-React.render(
-  React.createFactory(Comp)({name: 'React'}), document.body
-)
+React.render(React.createFactory(Hello)({name: "foo"}), document.body);
