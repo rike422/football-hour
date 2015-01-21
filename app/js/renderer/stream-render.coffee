@@ -1,8 +1,8 @@
 ipc = require('ipc')
 mui = require('material-ui')
 _ = require('lodash')
+React = require 'react/react'
 streamTemplate = require('components/stream-list.jade')
-stream = require('react/react')
 
 Comp = React.createClass({
   render: -> streamTemplate()

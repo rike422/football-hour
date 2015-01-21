@@ -35,6 +35,7 @@ module.exports =
         {test: /\.ttf$/, loader: 'file'},
         {test: /\.eot$/, loader: 'file'},
         {test: /\.svg$/, loader: 'file'},
+        {test: /\.json$/, loader: 'json-loader'},
         {test: /\.jade$/, loader: "react-jade-loader?split=true"}
         {test: /\.(gif|png|jpg)$/, loaders: 'image?optimizationLevel=7&interlaced=false'}
       ]
@@ -42,7 +43,8 @@ module.exports =
       extensions: ['', '.jsx', '.webpack.js', '.web.js', '.coffee', '.js', '.scss']
       modulesDirectories: ['app/js/rss', 'app/view', 'web_modules', 'bower_components', 'node_modules']
     externals: {
-      #"react": "React"
+      #"react/react.js": "React",
+      #"rx/dist/rx.all.js": "Rx"
     },
     plugins: [
       new webpack.ResolverPlugin([
