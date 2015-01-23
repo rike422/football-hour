@@ -5,7 +5,7 @@ sourcemaps = require 'gulp-sourcemaps'
 plumber = require 'gulp-plumber'
 config = require '../../webpack.config.coffee'
 browser = "app/js/browser/**/*.coffee"
-
+livereload = require('gulp-livereload')
 gulp.task "build:browser", ->
   gulp.src browser
   .pipe plumber()
@@ -17,6 +17,7 @@ gulp.task "build:browser", ->
     addComment: true
     sourceRoot: browser
   .pipe gulp.dest './dist/browser'
+  .pipe(livereload())
   return
 
 gulp.task 'copy:config', ->
@@ -24,9 +25,11 @@ gulp.task 'copy:config', ->
   .pipe gulp.dest './dist/menus'
   gulp.src ['app/package.json']
   .pipe gulp.dest './dist'
+  .pipe(livereload())
   return
 
 gulp.task "build:renderer", ->
   gulp.src("app/js/render/main.coffee")
   .pipe(webpack(config.coffee))
   .pipe gulp.dest("dist/renderer/")
+  .pipe(livereload())
