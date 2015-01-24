@@ -4,7 +4,6 @@ BASE = (p) ->
   path.join BASE_DIR, p
 
 ATOM_VERSION = "v0.20.4"
-DST_DIR = BASE("public")
 RELEASE_DIR = BASE("release")
 BUILD_DIR = BASE("dist")
 HTML = BASE("app/view/**/*.jade")
@@ -12,16 +11,19 @@ RENDER_SCRIPTS = BASE("app/js/renderer/**/*.coffee")
 BROWSER_SCRIPTS  = BASE("app/js/browser/**/*.coffee")
 STYLES = BASE("app/css/**/*.scss")
 MENUS = BASE ("app/menus/**/*.*")
-
+PACKAGE_JSON = BASE("app/package.json")
 module.exports =
   bundle:
     src: BASE("src/assets/**/*")
-    dst: DST_DIR
+    dst: BUILD_DIR
   html:
     src: HTML
-    dst: DST_DIR
+    dst: BUILD_DIR
   settings:
     menu: MENUS
+  extensions:
+    setting: PACKAGE_JSON
+    dst: "#{BUILD_DIR}/extentions"
   watch:
     src:
       html: HTML
