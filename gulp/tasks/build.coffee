@@ -5,7 +5,8 @@ sourcemaps = require 'gulp-sourcemaps'
 plumber = require 'gulp-plumber'
 config = require '../../webpack.config.coffee'
 browser = "app/js/browser/**/*.coffee"
-livereload = require('gulp-livereload')
+livereload = require 'gulp-livereload'
+
 gulp.task "build:browser", ->
   gulp.src browser
   .pipe plumber()
