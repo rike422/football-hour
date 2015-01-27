@@ -1,11 +1,13 @@
 gulp = require('gulp')
 git = require('gulp-git')
 _ = require("lodash")
+mkdirp = require('mkdirp');
 config = require('../config').extensions
 extensions = require(config.setting).extensions
 path = require('path')
 
 gulp.task('extension:download', ->
+  mkdirp.sync(config.dst)
   _.forIn(extensions, (v, k) ->
     installDir = path.join config.dst, k
     if path.existsSync(installDir)
