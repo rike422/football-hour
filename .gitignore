@@ -34,3 +34,4 @@ resources
 build
 dist
 release
+bin/Atom.app

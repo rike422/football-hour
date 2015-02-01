@@ -2,6 +2,13 @@
   "productName": "football-hour",
   "main": "./browser/main.js",
   "extensions": {
-    "react-devtools": "https://github.com/facebook/react-devtools.git"
+    "react-devtools": {
+      "url": "git@github.com:deepak1556/react-devtools.git",
+      "manifest": "react-devtools"
+    },
+    "CoffeeConsole": {
+      "url" :"git@github.com:snookca/CoffeeConsole.git",
+      "manifest": "CoffeeConsole/src"
+    }
   }
 }

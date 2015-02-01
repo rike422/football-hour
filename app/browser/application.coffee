@@ -1,7 +1,5 @@
 Menu = require 'menu'
 app = require 'app'
-fs = require 'fs'
-ipc = require 'ipc'
 path = require 'path'
 url = require 'url'
 {EventEmitter} = require 'events'
@@ -14,8 +12,9 @@ class Application
   _.extend(@prototype, EventEmitter.prototype)
 
   constructor: (options) ->
-    {@resourcePath, @version, @devMode } = options
-    @pkgJson = require '../package.json'
+    { @resourcePath, @version, @devMode } = options
+    @pkgJson = require 'package.json'
+    options.extension = @pkgJson.extensions
     @window = new AppWindow(options)
     @menu = new AppMenu(pkg: @pkgJson)
     app.on 'window-all-closed', (e) ->
