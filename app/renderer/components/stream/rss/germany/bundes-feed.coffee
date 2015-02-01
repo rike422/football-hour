@@ -1,4 +1,4 @@
-RssStream = require '../feed'
+RssStream = require 'js/renderer/components/stream/rss/feed'
 
 class BundesFeeds extends RssStream
   constructor: (url, name) ->

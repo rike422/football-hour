@@ -11,8 +11,7 @@ class ApplicationMenu
   _.extend @prototype, EventEmitter.prototype
 
   constructor: (options) ->
-    menuPath = path.join("#{process.resourcesPath}", 'app', 'menus', "#{process.platform}.cson")
-    console.log menuPath
+    menuPath = path.join(__dirname, '../', 'menus', "#{process.platform}.cson")
     menuJson = season.resolve(menuPath)
     template = season.readFileSync(menuJson)
     @template = @translateTemplate(template.menu, options.pkg)

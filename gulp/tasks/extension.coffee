@@ -9,7 +9,7 @@ path = require('path')
 gulp.task('extension:download', ->
   mkdirp.sync(config.dst)
   _.forIn(extensions, (v, k) ->
-    installDir = path.join config.dst, k
+    installDir = path.join config.dst, v.url
     if path.existsSync(installDir)
       git.pull('origin', 'master', {cwd: installDir}, (e)->
         console.error e if e?

@@ -2,10 +2,10 @@ Menu = require 'menu'
 app = require 'app'
 path = require 'path'
 url = require 'url'
-
-{EventEmitter} = require 'events'
+EventEmitter = require 'events'
 BrowserWindow = require 'browser-window'
 _ = require 'lodash'
+ExtensionLoader = require './browser/extension-loader'
 
 class AppWindow
   _.extend @prototype, EventEmitter.prototype
@@ -13,7 +13,6 @@ class AppWindow
   constructor: (options) ->
     @loadSettings =
       bootstrapScript: require.resolve '../renderer/main'
-
     @loadSettings = _.extend(@loadSettings, options)
 
     windowOpts =
@@ -26,8 +25,8 @@ class AppWindow
 
     windowOpts = _.extend(windowOpts, @loadSettings)
 
-    @window = new BrowserWindow(windowOpts)
 
+    @window = new BrowserWindow(windowOpts)
     @window.on 'closed', (e) =>
       this.emit 'closed', e
 
@@ -37,9 +36,10 @@ class AppWindow
     @window.on 'devtools-closed', (e) =>
       @window.webContents.send 'window:toggle-dev-tools', false
 
+    @extension = new ExtensionLoader(BrowserWindow, options.extension)
+    @extension.fullCustomize()
   show: ->
     targetPath = path.resolve(__dirname, '../', "view", 'index.html')
-    console.log targetPath
 
     targetUrl = url.format
       protocol: 'file'

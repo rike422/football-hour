@@ -1,0 +1,17 @@
+doctype html
+html(lang='ja', ng-app='app')
+  head
+title
+  | football-hour
+body
+  script.
+    if (process.env.ATOM_DEV_MODE == 1) {
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'http://localhost:35729/livereload.js';
+      document.body.appendChild(script);
+    }
+    React = require('react')
+    require('remote').require('browser-window').addDevToolsExtension(__dirname + '/../extensions/react-devtools')
+
+  script(src="../renderer/main.js")

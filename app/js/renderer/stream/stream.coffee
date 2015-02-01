@@ -1,1 +1,0 @@
-require 'rss/germany/bundes-feed'
