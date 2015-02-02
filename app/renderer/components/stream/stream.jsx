@@ -4,7 +4,7 @@ var React = require('react');
 var template = require('./stream.jade');
 var mixins = require('../../lib/react-mixins.js');
 
-var Test = React.createClass({
+var Stream = React.createClass({
   mixins: [mixins.JadeMixin],
   getDefaultProps: function() {
     return {
@@ -13,10 +13,8 @@ var Test = React.createClass({
   },
   template: template,
   render: function() {
-    return this.renderTemplate({
-      name: "name"
-    });
+    return this.renderTemplate({});
   }
 });
 
-var component = React.render(<Test name='mugamuga' />, document.body);
+var component = React.render(<Stream name='mugamuga' />, document.body);

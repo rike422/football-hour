@@ -8,4 +8,4 @@ ipc.on('ping', function(message) {
   document.body.appendChild(h1);
 });
 
-//React.render( <Main />, document.body );
+React.render(<Main />, document.body );
